@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>JavaScript 自动为表格增加序号</title>
+		<style type="text/css">
+			.index_tab {
+				width: 100%;
+				border-collapse: collapse;
+				border: 1px solid #005892;
+				margin: 8px 0;
+			}
+			
+			.index_tab td {
+				line-height: 35px;
+				border: 1px solid #005892;
+				padding-left: 4px;
+			}
+			
+			tr.tr_top td {
+				line-height: 32px;
+				border: none;
+				background-color: #005892;
+				color: #fff;
+				font-weight: bold;
+			}
+			
+			td.td_center {
+				text-align: center;
+			}
+			
+			.ys01 {
+				background-color: #E6F0FE;
+			}
+		</style>
+		<script language="javascript" type="text/javascript">
+			window.onload = function() {
+				var oTable = document.getElementById("bbsTab");
+				for(var i = 0; i < oTable.rows.length; i++) {
+					oTable.rows[i].cells[0].innerHTML = (i + 1);
+					if(i % 2 == 0) //偶数行 
+						oTable.rows[i].className = "ys01";
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<table class="index_tab">
+			<tr class="tr_top">
+				<td class="td_center" width="9%">行号</td>
+				<td width="83%">标题</td>
+				<td class="td_center" width="11%">总计</td>
+			</tr>
+			<tbody id="bbsTab">
+				<tr>
+					<td class="td_center"></td>
+
+					<td>
+						<a href="http://www.ablanxue.com">Vc++支持窗口及文字拖放的COleDropTarget扩展类</a>
+					</td>
+					<td class="td_center">20235</td>
+				</tr>
+				<tr>
+					<td class="td_center"></td>
+					<td>
+						<a href="http://www.ablanxue.com">好用的ICO图标截取工具VB源程序</a>
+					</td>
+					<td class="td_center"> </td>
+				</tr>
+				<tr>
+					<td class="td_center"></td>
+					<td>
+						<a href="http://www.ablanxue.com">一些经典的VB加密解密算法示例</a>
+					</td>
+					<td class="td_center"> </td>
+				</tr>
+				<tr>
+					<td class="td_center"></td>
+					<td>
+						<a href="http://www.ablanxue.com">ab蓝学网 网页特效 http://www.ablanxue.com </a>
+					</td>
+					<td class="td_center"></td>
+				</tr>
+				<tr>
+					<td class="td_center"></td>
+					<td> </td>
+					<td class="td_center"> </td>
+				</tr>
+				<tr>
+					<td class="td_center"></td>
+					<td> </td>
+					<td class="td_center"> </td>
+				</tr>
+				<tr>
+					<td class="td_center"></td>
+					<td> 否定回答是否合格的发货单发货单 </td>
+					<td class="td_center"> 豆腐干豆腐干豆腐干发</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+
+</html>
