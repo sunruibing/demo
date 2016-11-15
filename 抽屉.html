@@ -1,0 +1,106 @@
+<!doctype html>
+
+<html>
+
+	<head>
+
+		<meta charset="utf-8">
+
+		<title>无标题文档</title>
+		<style>
+			
+		</style>
+
+	</head>
+
+
+	<script src="js/jquery-3.1.0.min.js"></script>
+
+	<body>
+
+		<div id="animate" style="width:100%;height:670px;">
+
+		</div>
+		
+		
+		<script type="text/javascript">
+	$(function() {
+
+		shrink = function() {
+
+			var show = '<div id="pannal_left" class="pannal_left"></div><div id="pannal_right" class="pannal_right"></div><span id="animate" style="z-index:999;cursor:pointer;"><img src="leftbar.png" width="15" height="53"  alt=""/></span> </div>';
+
+			return ep = {
+
+				init: function(obj) {
+
+					ep.create(obj);
+
+					ep.bindEvent(obj);
+
+				},
+
+				create: function(obj) {
+
+					obj.append(show);
+
+					obj.find("span").addClass("showpannal");
+
+				},
+
+				bindEvent: function(obj) {
+
+					obj.toggle(function() {
+
+						$("#pannal_left").animate({
+							width: "0px"
+						});
+
+						$("#pannal_right").animate({
+							marginLeft: "0px"
+						});
+
+						obj.find("span").animate({
+							left: "0px"
+						});
+
+					}, function() {
+
+						$("#pannal_left").animate({
+							width: "200px"
+						});
+
+						$("#pannal_right").animate({
+							marginLeft: "200px"
+						});
+
+						obj.find("span").animate({
+							left: "200px"
+						});
+
+					});
+
+				}
+
+			};
+
+		}
+
+		$.fn.bindanimate = function() {
+
+			var me = new shrink();
+
+			return this.each(function() {
+
+				me.init($(this));
+
+			});
+		}
+
+	});
+</script>
+
+	</body>
+
+</html>
+

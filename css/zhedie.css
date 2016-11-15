@@ -1,0 +1,26 @@
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+ <head id="Head1" runat="server"> 
+ <title>无标题页</title> 
+ </head> 
+ <body> 
+ <form id="Form1" action="/json/ajax/WinLog.aspx" method="post" enctype="multipart/form-data" > 
+ <div style="text-align: center"> 
+ 填写用户信息 
+ <hr style="size: 50%" /> 
+ </div> 
+ <div style="text-align: left"> 
+ 用户名：<input name="user_name" type="text" /><br /> 
+ 密码： 
+ <input name="Password1" type="password" /><br /> 
+ 确认密码：<input name="Password2" type="password" /><br /> 
+ 性别：<input name="女" type="radio" value="女" />女<input id="Radio1" type="radio" value="男" 
+ name="sex" />男<br /> 
+ 上传照片：<input id="File1" type="file" name="picture" /><br /> 
+ <br /> 
+ <input type="submit" value="提交" /> 
+ <input type="reset" value="重置" /></div> 
+ </form> 
+ </body> 
+ </html> 
+
+
