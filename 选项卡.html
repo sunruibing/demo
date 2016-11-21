@@ -20,7 +20,7 @@
 				padding-top: 50px;
 				width: 1200px;
 				height: auto;
-			   margin: 0 auto;
+				margin: 0 auto;
 			}
 			
 			#tab .tab_menu {
@@ -28,7 +28,6 @@
 				float: left;
 				margin-bottom: 10px;
 				position: relative;
-				
 				z-index: 1;
 			}
 			
@@ -38,7 +37,7 @@
 				height: 35px;
 				line-height: 30px;
 				border: 1px solid #ccc;
-				border-radius: 8px 38px 0px 0px;
+				border-radius: 8px 25px 0px 0px;
 				border-bottom: 0px;
 				cursor: pointer;
 				text-align: center;
@@ -54,17 +53,71 @@
 				border: 1px solid #CCC;
 			}
 			
-			.tab_menu li:hover{
+			.tab_menu li:hover {
 				cursor: pointer;
 				background-color: #66CCFF;
-				
 			}
+			
 			.hide {
 				display: none;
 			}
 			
 			.tab_box div {
 				padding: 10px;
+			}
+			
+			.essay {
+				width: auto;
+				height: auto;
+			}
+			
+			#title {
+				font-size: 20px;
+				color: black;
+				border-bottom: 2px solid grey;
+			}
+			
+			#publish {
+				font-size: 12px;
+				top: 35px;
+				position: absolute;
+			}
+			.userdefined-file {
+				position: absolute;
+				top: 80px;
+				z-index: 2;
+				width: 80px;
+				height: 80px;
+				/*应锟斤拷锟斤拷元锟斤拷为 inline-block 锟斤拷锟斤拷锟斤拷锟竭撅拷*/
+			}
+			
+			.userdefined-file input[type="text"] {
+				display: inline-block;
+				width: 80px;
+				box-sizing: border-box;
+				border-radius: 6px;
+				border: 1px solid #ccc;
+				background-color: #f4f4f4;
+				color: #AAAAAA;
+				height: 80px;
+				white-space: nowrap;
+			}
+			
+			
+			.file input[type="file"] {
+				position: relative;
+				z-index: 3;
+				opacity: 0;
+				width: 80px;
+				height: 120px;
+				cursor: pointer;
+				border: 1px solid red;
+				background-image: url(img/imgs/用户挂号回复_03.png);
+				<img src: url(img/imgs/用户挂号回复_03.png);/>
+			}
+			.row{
+				top: 220px;
+				position: relative;
 			}
 		</style>
 
@@ -91,7 +144,19 @@
 				<li>育儿知识</li>
 			</ul>
 			<div class="tab_box">
-				<div>时事品格安全的内容</div>
+				<div class="essay">
+					<a><span id="title">小儿疾病</span></a><br/>
+					<a><span id="publish">2016年10月25日&nbsp;&nbsp;天使咨询</span></a>
+					<div class="file">
+						<div class="userdefined-file">
+							<input type="text" name="userIcon" value="http://i2.buimg.com/573844/f6754a29c3239037.jpg" id="userdefinedFile">
+							<p style="margin-left: 100px;">图片添加</p>
+						</div>
+						<input type="file" name="file" id="file">
+					<textarea rows="10" class="row"></textarea>
+					</div>
+
+				</div>
 				<div class="hide">体育的营养保健内容</div>
 				<div class="hide">新闻育儿知识的内容</div>
 			</div>

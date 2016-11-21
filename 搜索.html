@@ -64,8 +64,3 @@
 
 </html>
 
-$(document).ready(function(){ 03. var xhr=null; 04. $('input[name="keyword"]').keyup(function() { 05. if(xhr){ 06. xhr.abort();//如果存在ajax的请求，就放弃请求 07. } 08. var inputText= $.trim(this.value); 09. if(inputText!=""){//检测键盘输入的内容是否为空，为空就不发出请求 10. xhr=$.ajax({ 11. type: 'GET', 12. url: 'service/suggestion.php', 13. cache:false,//不从浏览器缓存中加载请求信息 14. data: "keyword=" + inputText,//向服务器端发送的数据 15. dataType: 'json',//服务器返回数据的类型为json 16. success: function (json) { 17. if (json.length != 0) {//检测返回的结果是否为空 18. var lists = "
-<ul>"; 19. $.each(json, function () { 20. lists += "
-	<li>"+this.pd_name+"</li>";//遍历出每一条返回的数据 21. }); 22. lists+="</ul>"; 23. 24. $("#searchBox").html(lists).show();//将搜索到的结果展示出来 25. 26. $("li").click(function(){ 27. $("#keyword").val($(this).text());//点击某个li就会获取当前的值 28. $("#searchBox").hide(); 29. }) 30. 31. } else { 32. $("#searchBox").hide(); 33. } 34. 35. 36. } 37. 38. }); 39. }else{ 40. $("#searchBox").hide();//没有查询结果就隐藏搜索框 41. } 42. }).blur(function(){ 43. $("#searchBox").hide();//输入框失去焦点的时候就隐藏搜索框 44. }); 45. 46. }); 47.
-</script>
-
