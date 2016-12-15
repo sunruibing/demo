@@ -1,0 +1,303 @@
+body{
+    margin: 0 auto;
+    padding: 0 auto;
+}
+ul{
+    margin-top: 0;
+}
+li{
+    list-style-type: none;
+}
+a,a:hover{
+    text-decoration: none;
+}
+/*鐎佃壈鍩呴弽锟�*/
+#header{
+    background-color: #6fc8e6;
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    top: 0;
+}
+#header > a{
+    float: right;
+    margin-right: 22px;
+    margin-top: 12px;
+}
+
+/*娓氀嗙珶閺嶏拷*/
+#sidebar{
+    background-color: #f4f4f4;
+    width: 200px;
+    height: auto;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    top: 50px;
+}
+/*娑擃參妫块崠鍝勭厵*/
+#content{
+	background-color: #F0FFFF;
+    width: auto;
+    height: auto;
+    position: absolute;
+    right: 240px;
+    left:200px;
+    overflow-y: scroll;
+    bottom: 0;
+    top: 50px;
+}
+/*閸欏疇绔熼崠鍝勭厵  */
+#right{
+	background-color: #F4F4F4;
+    width: 240px;
+    height: auto;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    top: 50px;
+}
+#right a{
+	top: 10px;
+	margin-left: 20px;
+	position: relative;
+}
+/*閸栬崵鏁撴穱鈩冧紖*/
+.doctor{
+	right: 0;
+    bottom: 0;
+    top: 50px;
+	width: 240px;
+	height: auto;
+	position: absolute;
+	background-color: #F4F4F4;
+}
+.user{
+	right: 0;
+    bottom: 0;
+    top: 240px;
+	width: 240px;
+	height: auto;
+	overflow-y: scroll;
+	position: absolute;
+	background-color: #FaFaFa;
+}
+.title{
+	right: 0;
+    bottom: 0;
+    top: 210px;
+	width: 240px;
+	height: auto;
+	background-color: #FaFaFa;
+	position: absolute;
+}
+.title a{
+	line-height: 30px;
+	margin-left: 20px;
+}
+
+/*閸栬崵鏁撴穱鈩冧紖*/
+.information{
+	width: 240px;
+	height: 85px;
+	overflow:hidden;
+	display:inline-block
+}
+/*閸栬崵鏁撴径鏉戝剼*/
+.information img{
+	margin-top: 25px;
+	margin-left: 27px;
+	width: 50px;
+	height: 50px;
+	border-radius: 25px;
+	display:inline-block;
+}
+/*缁夋垵顓婚崣濠傤潣閸氬碀iv*/	
+.section{
+	margin-right: 40px;
+	margin-top: 25px;
+	width: 120px;
+	height:50px;
+	float: right;
+	position: relative;
+	}
+.section li{
+	list-style-type: none;
+	padding-left: 2px;
+	padding-top: 8px;
+	line-height: 13px;
+	color: #a0a0a0;
+}
+.section span{
+	font-size: 14px;
+	color: #323232;
+	padding-left: 2px;
+    font-weight: bold;
+}
+/*闂傤喛鐦栭弫浼村櫤閹存垹娈戦幃锝堬拷鍛瘯閸欙拷*/
+.label{
+	padding-top: 2px;
+	width: 240px;
+	height: 64px;
+}
+.nquiry{
+	float: left;
+	width: 76px;
+	height: 52px;
+	/*background-color: #323232;*/
+}
+.regis{
+	float: left;
+	width: 76px;
+	height: 52px;
+	/*background-color:red;*/
+}
+.patient{
+	padding-top: 2px;
+	float: right;
+	width: 76px;
+	height: 52px;
+	/*background-color: #6FC8E6;*/
+}
+.label p{
+	text-align: center;
+	line-height: 10px;
+	color: #777777;
+}
+.nquiry{
+	border-right: 1px solid #E0E0E0;
+	padding:2px 1px 5px 1px;
+}
+.regis{
+	border-right: 1px solid #E0E0E0;
+	padding:2px 1px 5px 1px;
+}
+/*閻€劍鍩涢崚妤勩��*/
+.user a {
+	width: 100%;
+	padding-left: 60px;
+}
+
+.user  img {
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	border-radius: 20px;
+	margin-left: 5px;
+}
+
+.user p {
+	width: 100%;
+	padding-left: 60px;
+	white-space :nowrap;
+	line-height: 5px;
+	text-overflow : ellipsis;
+}
+.user ul:hover {
+	background: #eee;
+	cursor:default;
+}
+.user li:after {
+	content: '';
+	width:200px;
+	height: 1px;
+	background-color: #A0A0A0;
+	position: absolute;
+}
+.user ul,li{
+	margin: 0px;
+	padding: 5px 0px 5px 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#sideNav{
+    margin-bottom: 0;
+    padding-left: 0;
+}
+#sidebar #sideNav .menu{
+    /*text-align: center;*/
+    margin-bottom: 10px;
+}
+#sidebar #sideNav .menu > a{
+    /*margin-left: 16px;*/
+    color: #a0a0a0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    line-height: 14px;
+}
+#sidebar #sideNav .menu a > span{
+    display: inline-block;
+    width: 16px;
+}
+#sidebar #sideNav .menu-icon{
+    float: right;
+    width: 14px;
+    height: 14px;
+    margin-right: 14px;
+    background-image:url(../imgs/menu1-1.png);
+
+}
+#sidebar #sideNav .menu-icon2{
+ 	background-image: url(../imgs/menu1-2.png);
+}
+#sidebar #sideNav .subMenu{
+    margin-top: 10px;
+    padding-left: 0;
+    display: none;
+}
+#sidebar #sideNav .subMenu > li{
+    /*margin-left: 24px;*/
+}
+#sidebar #sideNav .subMenu > li:hover{
+    background-color: #eeeeee;
+}
+#sidebar #sideNav .subMenu a{
+    color: #777777;
+    height: 32px;
+    width: 100%;
+    display: block;
+    font-size: 12px;
+    line-height: 32px;
+}
+#sidebar #sideNav .subMenu a > span{
+    width: 24px;
+}

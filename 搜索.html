@@ -7,13 +7,13 @@
 		<script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
 		<script>
 			$(function() {
-				$("input[type=button]").click(function() {
-					var txt = $("input[type=text]").val();
+				$(".sou").click(function() {
+					var txt = $("#tex").val();
 					if($.trim(txt) != "") {
 
-						$("table tr:not('#theader')").hide().filter(":contains('" + txt + "')").show().css("background", "red");
+						$("#goos tr:not('#theader')").hide().filter(":contains('" + txt + "')").show().css("background", "red");
 					} else {
-						$("table tr:not('#theader')").css("background", "#fff").show();
+						$("#goos tr:not('#theader')").css("background", "#fff").show();
 					}
 				});
 			})
@@ -22,7 +22,7 @@
 
 	<body>
 
-		<div class="table">
+		<div  id="goos"> 
 			<table>
 				<tr id="theader">
 					<th>姓名</th>
@@ -55,8 +55,8 @@
 					<td>37398378737</td>
 				</tr>
 			</table>
-			<input type="text"></input>
-			<input type="button" value="搜索"></input>
+			<input type="text" id="tex"></input>
+			<input type="button" value="搜索" class="sou"></input>
 
 		</div>
 

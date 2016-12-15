@@ -4,6 +4,13 @@
 	<head>
 		<meta charset="utf-8">
 		<title></title>
+		<style>
+			
+			.action{
+				color: #CCFFFF;
+			}
+			
+		</style>
 		<script type="text/javascript">
 			window.onload = function() {
 				var oTab = document.getElementById("tab");
@@ -35,7 +42,7 @@
 						for(var j = 0; j < arr.length; j++) {
 							if(str1.search(arr[j]) != -1) {
 								oTab.tBodies[0].rows[i].style.background = 'red';
-							}
+															}
 						}
 					}
 				}

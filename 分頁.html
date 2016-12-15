@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<HTML>
+ 
+<HEAD>
+    <TITLE>New Document</TITLE>
+    <style type="text/css">
+        * {
+    margin: 0;
+    padding: 0;
+}
+ 
+#content {
+    margin: auto;
+    width: 400px;
+    border: 1px solid black;
+}
+ 
+.on {
+    color: red
+}
+ 
+.off {
+    color: black
+}
+ 
+body {
+    font-family: "Courier New"
+}
+ 
+ul {
+    padding: 10px 0px 10px 45px;
+}
+ 
+ul li {
+    color: red
+}
+    </style>
+    <script type="text/javascript">
+        window.onload = function() {
+            Page.arr = Page.pushArr();
+            Page.setClickPageNum();
+            Page.allContent("null");
+        }
+        var Page = {
+            defaultPerPageNum: 4,
+            arr: null,
+            removedBlankStr: function(str) {
+                var regex = /^\s*|\s*$/g;
+                return str.replace(regex, "");
+            },
+            setTotalPageNums: function() {
+                var pp = Number(Page.perPageNum('t1'));
+                var pnums = Page.arr.length / pp > parseInt(Page.arr.length / pp) ? parseInt(Page.arr.length / pp) + 1 : Page.arr.length / pp;
+                var div = document.getElementById('pagenum');
+                div.innerHTML = "";
+                for (var i = 0; i < pnums; i++) {
+                    var a = document.createElement('a');
+                    a.href = "#";
+                    a.innerHTML = i + 1;
+                    a.setAttribute('class', 'off');
+                    div.appendChild(a);
+                    div.innerHTML += " ";
+                }
+                Page.setClickPageNum();
+            },
+            perPageNum: function(PerPageNum) {
+                var pv = document.getElementById(PerPageNum).value;
+                pv = Page.removedBlankStr(pv);
+                if ("" == pv || isNaN(pv) || (new RegExp(/^[-]*[0]+.*?$/g).test(pv)) || pv < 0) {
+                    pv = Page.defaultPerPageNum;
+                    document.getElementById(PerPageNum).value = pv;
+                }
+                document.getElementById('p1').innerHTML = pv;
+                return pv;
+            },
+            getClickPageNum: function(diva) {
+                return parseFloat(diva.innerHTML);
+            },
+            setClickPageNum: function() {
+                var divx = document.getElementById('pagenum');
+                var a = divx.children;
+                var len = a.length;
+                for (var i = 0; i < len; i++) {
+                    a[i].onclick = function() {
+                        this.className = "on";
+                        Page.allContent(this);
+                    };
+                }
+            },
+            pushArr: function() {
+                var arr = new Array();
+                var ul = document.getElementById('ul1');
+                var len = ul.children.length;
+                for (var i = 0; i < len; i++) {
+                    arr.push(ul.children[i]);
+                }
+                return arr;
+            },
+            allContent: function(divb) {
+                var ul = document.getElementById('ul1');
+                ul.innerHTML = "";
+                var pp = parseFloat(this.perPageNum('t1'));
+                if ("null" == divb) {
+                    divb = document.getElementById('pagenum').children[0];
+                    divb.className = "on";
+                }
+                var pg = this.getClickPageNum(divb); // 1 2 3
+                var ppj = pp * (pg - 1); // 0 4 8
+                var end = ppj + pp; // 4 8 12
+                var arr = this.arr;
+                var pnums = arr.length / pp > parseInt(arr.length / pp) ? parseInt(arr.length / pp) + 1 : arr.length / pp;
+                for (var i = ppj; i < end; i++) {
+                    var a = arr[i];
+                    if (null != a) {
+                        ul.appendChild(a);
+                    }
+                }
+            },
+            doAction: function() {
+                Page.perPageNum('t1');
+                Page.setTotalPageNums();
+                Page.allContent("null");
+            }
+        };
+    </script>
+</HEAD>
+ 
+<BODY>
+    <div id='content'>
+        <ul id="ul1">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+        </ul>
+        <div id="pagenum"><a href="#" class="on">1</a> <a href="#">2</a> <a href="#">3</a>
+        </div>
+        <input type="text" value="4" id="t1" /> 
+        <input type="button" value="set" onclick="Page.doAction();" />  Each Page
+        <a id="p1"></a>Records</div>
+</BODY>
+ 
+</HTML>
