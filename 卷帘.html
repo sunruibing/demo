@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<script src="assets/js/jquery-3.1.0.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$(".flip").click(function() {
+					$(".panel").slideToggle("slow");
+				});
+			});
+		</script>
+
+		<style type="text/css">
+			div.panel,
+			p.flip {
+				margin: 0px;
+				padding: 5px;
+				text-align: center;
+				background: #e5eecc;
+				border: solid 1px #c3c3c3;
+			}
+			
+			div.panel {
+				height: 100px;
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<p class="flip"><u>礼拜&nbsp;</u>全部&nbsp;"  请点击这里</p>
+		<div class="panel">
+			<p>在 W3School，你可以找到你所需要的所有网站建设教程。</p>
+		</div>
+
+   <div>
+   	<p>asdsa</p>
+   	<p>asdsa</p>
+   	<p>asdsa</p>
+   	<p>asdsa</p>
+   	<p>asdsa</p>
+   	<p>asdsa</p>
+   	<p>asdsa</p>
+   </div>
+	</body>
+
+</html>

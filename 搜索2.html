@@ -15,6 +15,7 @@
 			window.onload = function() {
 				var oTab = document.getElementById("tab");
 				var oBt = document.getElementsByTagName("input");
+		        var ss = document.getElementById("name");
 				oBt[1].onclick = function() {
 					for(var i = 0; i < oTab.tBodies[0].rows.length; i++) {
 						var str1 = oTab.tBodies[0].rows[i].cells[1].innerHTML.toUpperCase();

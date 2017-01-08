@@ -1,0 +1,24 @@
+<script>
+	function chaCloor(field) {
+		var pig = field.checked;
+		pig ? field.nextSibling.style.backgroundColor = "blue" : field.nextSibling.style.backgroundColor = "#333333";
+	}
+</script>
+<style>
+	.checkbox {
+		background-Color: expression(this.checked?'blue': 'buttonface');
+	}
+</style>
+<p align="center">
+	<table height=50 width=148>
+		<tr>
+			<td width="138"><input type="checkbox" onClick="chaCloor(this)"><span>选项1</span></td>
+		</tr>
+		<tr>
+			<td width="138"><input type="checkbox" onClick="chaCloor(this)"><span>选项2</span></td>
+		</tr>
+		<tr>
+			<td width="138"><input type="checkbox" onClick="chaCloor(this)"><span>选项3</span></td>
+		</tr>
+	</table>
+</p>

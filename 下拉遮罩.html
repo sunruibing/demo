@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			/*CSS源代码*/
+			/* Common style */
+			
+			body,
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6,
+			p,
+			form {
+				margin: 0;
+			}
+			
+			ul {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			
+			a img,
+			input,
+			button,
+			textarea {
+				border: none;
+			}
+			
+			a,
+			input,
+			button,
+			textarea,
+			select {
+				outline: none;
+			}
+			
+			table {
+				border-collapse: collapse;
+				border-spacing: 0;
+				width: 100%;
+			}
+			
+			h1 {
+				text-indent: -9999px;
+			}
+			/* Link Style */
+			
+			a {
+				text-decoration: none;
+			}
+			
+			a:link {
+				color: #333;
+			}
+			
+			a:visited {
+				color: #333;
+			}
+			
+			a:hover {
+				color: #be0000;
+			}
+			
+			a:active {
+				color: #be0000;
+			}
+			/* Font Style */
+			
+			body {
+				font: 0.36rem '微软雅黑', tahoma, Srial, helvetica, sans-serif;
+				color: #333;
+			}
+			
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+				font-size: 100%;
+			}
+			
+			.normal {
+				font-weight: normal;
+			}
+			
+			body .color6 {
+				color: #666;
+			}
+			
+			.t_cen {
+				text-align: center;
+			}
+			
+			.red,
+			body a.red {
+				color: #be0000;
+			}
+			/* Body Style */
+			
+			.con {
+				width: 10.6rem;
+				padding: 0 0.1rem;
+				margin: 0 auto;
+			}
+			
+			.con_2 {
+				width: 10.8rem;
+				margin: 0 auto;
+			}
+			
+			.hide {
+				overflow: hidden;
+			}
+			
+			.fl {
+				float: left;
+			}
+			
+			.fr {
+				float: right;
+			}
+			/* content */
+			
+			.menu {
+				width: 100%;
+				height: 1.08rem;
+				position: fixed;
+				z-index: 2;
+				border-bottom: 1px solid #bbb;
+				background: #eaeaea;
+				top: 0;
+			}
+			
+			.menu_nav {
+				line-height: 1.08rem;
+				color: #d3d3d3;
+			}
+			
+			.menu_nav span {
+				display: inline-block;
+				width: 32.6%;
+				text-align: center;
+				color: #333;
+			}
+			
+			.menu_nav span {
+				background: url(img/imgs/menu2-2.png) 82% center no-repeat;
+				background-size: 0.18rem 0.1rem;
+			}
+			
+			.menu_nav .menu_this {
+				color: #be0000;
+				background: url(img/imgs/menu1-1.png) 82% center no-repeat;
+				background-size: 0.18rem 0.1rem;
+			}
+			
+			.menu_down_bg {
+				width: 100%;
+				background: #fff;
+			}
+			
+			.menu_down {
+				position: absolute;
+				display: none;
+				background: #fff;
+			}
+			
+			.menu_open {
+				display: none;
+				width: 50%;
+				height: 4.8rem;
+				overflow-y: scroll;
+				position: absolute;
+				top: 0;
+				right: 0;
+				background: #f5f5f5;
+			}
+			
+			.menu_open a {
+				display: block;
+				height: 0.8rem;
+				line-height: 0.8rem;
+				text-indent: 0.6rem;
+			}
+			
+			.menu_open a:active {
+				background: #ddd;
+			}
+			
+			.menu_open a font {
+				color: #999;
+				float: right;
+				margin-right: 0.3rem;
+			}
+			
+			.menu_far {
+				z-index: 9999;
+				position: relative;
+				width: 100%;
+				background: #fff;
+			}
+			
+			.menu_far a {
+				display: block;
+				height: 0.8rem;
+				line-height: 0.8rem;
+				clear: both;
+				text-indent: 0.8rem;
+			}
+			
+			.menu_far a:active,
+			.menu_far .far_this {
+				background: #f5f5f5;
+			}
+			
+			.menu_bg {
+				display: none;
+				width: 100%;
+				height: 100%;
+				position: relative;
+				z-index: 1;
+				background: #CCCCCC;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!-- HTML代码片段中请勿添加<body>标签 //-->
+		<div class="menu">
+			<div class="con_2 menu_nav">
+				<span>全部分类</span>|<span>商圈</span>|<span>离我最近</span>
+			</div>
+			<div class="menu_down_bg">
+				<div class="con_2 menu_down">
+					<div class="menu_far">
+						<a href="" class="far_this">智能排序</a>
+						<a href="">好评优先</a>
+						<a href="">离我最近</a>
+						<a href="">人均最低</a>
+						<a href="">人均最高</a>
+					</div>
+				</div>
+			</div>
+			<div class="menu_down_bg">
+				<div class="con_2 menu_down">
+					<div class="menu_far">
+						<a href="" class="far_this">智能排序</a>
+						<a href="">好评优先</a>
+						<a href="">离我最近</a>
+						<a href="">好评优先</a>
+						<a href="">好评优先</a>
+					</div>
+				</div>
+			</div>
+			<div class="menu_down_bg">
+				<div class="con_2 menu_down">
+					<div class="menu_far">
+						<a href="" class="far_this">智能排序</a>
+						<a href="">好评优先</a>
+						<a href="">离我最近</a>
+						<a href="">离我最近</a>
+						<a href="">离我最近</a>
+					</div>
+				</div>
+			</div>
+			<p>sdsdfsdfsdfsdfsdfsd</p>
+			<p>sdsdfsdfsdfsdfsdfsd</p>
+			<p>sdsdfsdfsdfsdfsdfsd</p>
+			<p>sdsdfsdfsdfsdfsdfsd</p>
+			<p>sdsdfsdfsdfsdfsdfsd</p>
+
+			<p>sdsdfsdfsdfsdfsdfsd</p>
+			<p>sdsdfsdfsdfsdfsdfsd</p>
+			<p>sdsdfsdfsdfsdfsdfsd</p>
+			<p>sdsdfsdfsdfsdfsdfsd</p>
+
+			<p>sdsdfsdfsdfsdfsdfsd</p>
+			<p>sdsdfsdfsdfsdfsdfsd</p>
+			<p>sdsdfsdfsdfsdfsdfsd</p>
+			<p>sdsdfsdfsdfsdfsdfsd</p>
+			<p>sdsdfsdfsdfsdfsdfsd</p>
+			<p>sdsdfsdfsdfsdfsdfsd</p>
+
+			<p>sdsdfsdfsdfsdfsdfsd</p>
+			<p>sdsdfsdfsdfsdfsdfsd</p>
+			<p>sdsdfsdfsdfsdfsdfsd</p>
+			<p>sdsdfsdfsdfsdfsdfsd</p>
+			<p>sdsdfsdfsdfsdfsdfsd</p>
+			<p>sdsdfsdfsdfsdfsdfsd</p>
+			<p>sdsdfsdfsdfsdfsdfsd</p>
+
+			<p>sdsdfsdfsdfsdfsdfsd</p>
+			<p>sdsdfsdfsdfsdfsdfsd</p>
+			<p>sdsdfsdfsdfsdfsdfsd</p>
+
+		</div>
+		<div class="menu_bg"></div>
+
+		<script type="text/javascript" src="assets/js/jquery-3.1.0.min.js"></script>
+		<!-- 推荐开源CDN来选取需引用的外部JS //-->
+		<script>
+			/*Javascript代码片段*/
+			$(document).ready(function() {
+				var deviceWidth = $(window).outerWidth();
+				if(deviceWidth > 1080) {
+					$("html").css("font-size", "100px");
+				} else {
+					$("html").css("font-size", deviceWidth / 1080 * 100 + 'px');
+				}
+				var menu_t = $(".menu_nav span");
+				var menu_c = $(".menu_down");
+				var menu_bg = $(".menu_bg");
+
+				menu_t.each(function(index) {
+					$(this).click(function() {
+						$(this).siblings("span").removeClass("menu_this");
+						$(this).addClass("menu_this");
+						var m_this = menu_c.eq(index);
+						m_this.siblings("div").hide();
+						m_this.toggle();
+
+						if(m_this.is(':visible')) {
+							$(this).addClass("menu_this");
+						} else {
+							$(this).removeClass("menu_this");
+						}
+
+						if(menu_c.is(':visible')) {
+							menu_bg.show();
+							$("html,body").css({
+								"height": "100%",
+								"overflow": "hidden"
+							});
+
+						} else {
+							menu_bg.hide();
+							$("html,body").css({
+								"height": "auto",
+								"overflow": "auto"
+							});
+						}
+					});
+				});
+
+				//点击背景隐藏	
+				menu_bg.click(function() {
+					$(this).hide();
+					menu_t.removeClass("menu_this");
+					menu_c.hide();
+					down_t.removeClass("sort_this");
+					down_c.hide();
+					$("html,body").css({
+						"height": "auto",
+						"overflow": "auto"
+					});
+				});
+
+			});
+		</script>
+	</body>
+
+</html>

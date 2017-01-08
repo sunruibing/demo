@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>popup</title>
+	  <script type="text/javascript" src="assets/js/jquery-3.1.0.min.js" ></script>
+	</head>
+	<style type="text/css">
+		#popup {
+			position: absolute;
+			display: none;
+			z-index: 3000;
+			background-color: #FFF;
+			left: 601px;
+			top: 217px;
+			height: 150px;
+			width: 217px;
+			line-height: 94px;
+			text-align: center;
+			border: 1px solid #03F;
+		}
+		
+		#embedding {
+			position: absolute;
+			background-color: #36F;
+			top: 94px;
+			height: 56px;
+			width: 217px;
+			line-height: 56px;
+			text-align: center;
+		}
+		
+		a {
+			text-decoration: none;
+			font-family: "微软雅黑";
+			font-size: 18px;
+			color: #FFF;
+		}
+	</style>
+	<script type="text/javascript">
+		$(function() {  
+			var url = null;  
+			$(document).on('click', 'button', function() {    
+				var text = $(this).text();    
+				switch(text) {      
+					case 'OSChina':
+						url = 'http://www.oschina.net/';
+						break;      
+					case 'baidu':
+						url = 'http://www.baidu.com/';
+						break;      
+					case 'CSDN':
+						url = 'http://bbs.csdn.net/home';
+						break;      
+				}    
+				$('#text').text('是否确定前往 ' + text + ' ?');    
+				$('#loadingDiv').css('display', 'block');     
+				$('#popup').slideDown();  
+			});  
+			$(document).on('click', 'a', function() {    
+				if($(this).text() == '确定') {      
+					location.href = url;    
+				} else {      
+					$('#loadingDiv').css('display', 'none');      
+					$('#popup').slideUp();    
+				}  
+			});
+		});
+	</script>
+
+	<body>
+		<div id="loadingDiv" style="position:fixed;display:none;z-index:2000;top:0px;left:0px;width:100%;height:100%;background-color: #AAAAAA;></div>
+		<div id="popup">
+			<span id="text"></span>
+			<div id="embedding">
+			
+				<a href="javascript:void(0)">确定</a>
+				<a href="javascript:void(0)">取消</a>
+				</div>
+		</div>
+		<button style="position: absolute; left: 233px; top: 260px;">OSChina</button>
+		<button style="position: absolute; left: 233px; top: 320px;">baidu</button>
+		<button style="position: absolute; left: 233px; top: 380px;">CSDN</button>
+	</body>
+
+</html>

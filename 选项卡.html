@@ -1,166 +1,82 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>简单jquery tab选项卡切换 - 站长素材</title>
-
+		<title>tab</title>
 		<style type="text/css">
 			* {
-				margin: 0 auto;
+				margin: 0;
 				padding: 0;
-				list-style-type: none;
 			}
 			
-			body {
-				font: 12px/180% Arial, Helvetica, sans-serif, "新宋体";
+			dl {
+				width: 50%;
+				margin: 100px auto;
 			}
 			
-			#tab {
-				padding-top: 50px;
-				width: 1200px;
-				height: auto;
-				margin: 0 auto;
+			dt {
+				background: #F1F1F1;
 			}
 			
-			#tab .tab_menu {
-				width: 100%;
-				float: left;
-				margin-bottom: 10px;
-				position: relative;
-				z-index: 1;
-			}
-			
-			#tab .tab_menu li {
-				float: left;
-				width: 92px;
-				height: 35px;
-				line-height: 30px;
-				border: 1px solid #ccc;
-				border-radius: 8px 25px 0px 0px;
-				border-bottom: 0px;
-				cursor: pointer;
-				text-align: center;
-				margin: 0 2px 10px 0;
-			}
-			
-			#tab .tab_box {
-				width: 1200px;
-				height: auto;
-				clear: both;
-				top: 30px;
-				position: relative;
-				border: 1px solid #CCC;
-			}
-			
-			.tab_menu li:hover {
-				cursor: pointer;
-				background-color: #66CCFF;
-			}
-			
-			.hide {
-				display: none;
-			}
-			
-			.tab_box div {
-				padding: 10px;
-			}
-			
-			.essay {
-				width: auto;
-				height: auto;
-			}
-			
-			#title {
-				font-size: 20px;
-				color: black;
-				border-bottom: 2px solid grey;
-			}
-			
-			#publish {
-				font-size: 12px;
-				top: 35px;
-				position: absolute;
-			}
-			.userdefined-file {
-				position: absolute;
-				top: 80px;
-				z-index: 2;
-				width: 80px;
-				height: 80px;
-				/*应锟斤拷锟斤拷元锟斤拷为 inline-block 锟斤拷锟斤拷锟斤拷锟竭撅拷*/
-			}
-			
-			.userdefined-file input[type="text"] {
+			dt a {
 				display: inline-block;
-				width: 80px;
-				box-sizing: border-box;
-				border-radius: 6px;
-				border: 1px solid #ccc;
-				background-color: #f4f4f4;
-				color: #AAAAAA;
-				height: 80px;
-				white-space: nowrap;
+				padding: 10px;
+				text-decoration: none;
+				color: #000
 			}
 			
-			
-			.file input[type="file"] {
-				position: relative;
-				z-index: 3;
-				opacity: 0;
-				width: 80px;
-				height: 120px;
-				cursor: pointer;
-				border: 1px solid red;
-				background-image: url(img/imgs/用户挂号回复_03.png);
-				<img src: url(img/imgs/用户挂号回复_03.png);/>
+			dt a:hover {
+				text-decoration: underline;
 			}
-			.row{
-				top: 220px;
-				position: relative;
+			
+			dl dd {
+				display: none;
+				background: #dedede;
+				min-height: 100px;
+			}
+			
+			a.active {
+				background: #F60;
+			}
+			
+			dd.active {
+				background: #ccc;
+				display: block;
 			}
 		</style>
-
-		<script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
-		<script type="text/javascript">
-			$(document).ready(function() {
-				var $tab_li = $('#tab ul li');
-				$tab_li.click(function() {
-					$(this).addClass('selected').siblings().removeClass('selected');
-					var index = $tab_li.index(this);
-					$('div.tab_box > div').eq(index).show().siblings().hide();
-				});
-			});
-		</script>
-
 	</head>
 
 	<body>
 
-		<div id="tab">
-			<ul class="tab_menu">
-				<li class="selected">品格安全</li>
-				<li>营养保健</li>
-				<li>育儿知识</li>
-			</ul>
-			<div class="tab_box">
-				<div class="essay">
-					<a><span id="title">小儿疾病</span></a><br/>
-					<a><span id="publish">2016年10月25日&nbsp;&nbsp;天使咨询</span></a>
-					<div class="file">
-						<div class="userdefined-file">
-							<input type="text" name="userIcon" value="http://i2.buimg.com/573844/f6754a29c3239037.jpg" id="userdefinedFile">
-							<p style="margin-left: 100px;">图片添加</p>
-						</div>
-						<input type="file" name="file" id="file">
-					<textarea rows="10" class="row"></textarea>
-					</div>
+		<dl id="tab">
+			<dt>
+    	<a href="#tab1" class="active">选项1</a>
+    	<a href="#tab2">选项2</a>
+    	<a href="#tab3">选项3</a>
+ 		 </dt>
+			<dd id="content1" class="active">内容1</dd>
+			<dd id="content2">内容2</dd>
+			<dd id="content3">内容3</dd>
+		</dl>
+		<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				var tabContainer = $('dl#tab'),
+					anchorCotainer = $('dl>dt'),
+					anchor = anchorCotainer.children('a'),
+					container = tabContainer.children('dd'),
+					index;
 
-				</div>
-				<div class="hide">体育的营养保健内容</div>
-				<div class="hide">新闻育儿知识的内容</div>
-			</div>
-		</div>
+				anchorCotainer.delegate('a', 'click', function() {
+					index = anchor.index(this);
+					$(this).addClass('active').siblings().removeClass('active');
+					container.eq(index).show().siblings('dd').hide();
+				})
+
+			});
+		</script>
+
 	</body>
 
 </html>
