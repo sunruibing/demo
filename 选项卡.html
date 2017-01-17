@@ -5,78 +5,68 @@
 	<head>
 		<title>tab</title>
 		<style type="text/css">
-			* {
+			div {
 				margin: 0;
 				padding: 0;
-			}
-			
-			dl {
-				width: 50%;
-				margin: 100px auto;
-			}
-			
-			dt {
-				background: #F1F1F1;
-			}
-			
-			dt a {
-				display: inline-block;
-				padding: 10px;
-				text-decoration: none;
-				color: #000
-			}
-			
-			dt a:hover {
-				text-decoration: underline;
-			}
-			
-			dl dd {
+				width: 184px;
+				height: 200px;
+				border: 1px solid #ccc;
 				display: none;
-				background: #dedede;
-				min-height: 100px;
 			}
 			
-			a.active {
-				background: #F60;
+			.tab {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				width: 200px;
+				overflow: hidden;
 			}
 			
-			dd.active {
+			.tab li {
+				float: left;
+				width: 60px;
+				height: 30px;
 				background: #ccc;
+				color: #000000;
+				border: 1px solid red;
+				text-align: center;
+				line-height: 30px;
+				cursor: pointer;
+			}
+			
+			.on {
 				display: block;
+			}
+			
+			.tab li.cur {
+				color: white;
+				background-color: #09BB06;
 			}
 		</style>
 	</head>
 
 	<body>
-
-		<dl id="tab">
-			<dt>
-    	<a href="#tab1" class="active">选项1</a>
-    	<a href="#tab2">选项2</a>
-    	<a href="#tab3">选项3</a>
- 		 </dt>
-			<dd id="content1" class="active">内容1</dd>
-			<dd id="content2">内容2</dd>
-			<dd id="content3">内容3</dd>
-		</dl>
+		<ul class="tab">
+			<li  class="cur"></li>
+			<li>热门</li>
+			<li>新闻</li>
+		</ul>
+		<div>11</div>
+		<div class="on">22</div>
+		<div>33</div>
 		<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
 		<script type="text/javascript">
+			//<![CDATA[
+			   
 			$(document).ready(function() {
-				var tabContainer = $('dl#tab'),
-					anchorCotainer = $('dl>dt'),
-					anchor = anchorCotainer.children('a'),
-					container = tabContainer.children('dd'),
-					index;
+				$(".tab li").click(function() {
+				$(".tab li").eq($(this).index()).addClass("cur").siblings().removeClass('cur');
+				$("div").hide().eq($(this).index()).show();
 
-				anchorCotainer.delegate('a', 'click', function() {
-					index = anchor.index(this);
-					$(this).addClass('active').siblings().removeClass('active');
-					container.eq(index).show().siblings('dd').hide();
-				})
-
+				});
 			});
+			//]]>
 		</script>
-
 	</body>
 
 </html>
