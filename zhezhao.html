@@ -1,183 +1,75 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
-		<meta charset="UTF-8">
-		<title></title>
-		<link rel="stylesheet" href="css/zhezhao.css" />
+
+		<meta charset="utf-8" />
+		<title>弹出居中遮罩</title>
+
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=yes" />
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.testBg {
+				position: absolute;
+				top: 0;
+				background-color: #BBBBBB;
+				filter: alpha(opacity=80);
+				/* IE */
+				-moz-opacity: 0.8;
+				/* Moz + FF */
+				opacity: 0.8;
+				/* 支持CSS3的浏览器（FF 1.5也支持）*/
+				display: none;
+			}
+			
+			.testBg .testCont {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 200px;
+				border: 1px #ffc700 solid;
+				color: #ffc700;
+			}
+		</style>
 	</head>
-		<!-- HTML代码片段中请勿添加<body>标签 //-->
-<div class="menu">
-	<div class="con_2 menu_nav">
-    	<span>全部分类</span>|<span>商圈</span>|<span>离我最近</span>               
-    </div>
-    <div class="menu_down_bg">
-    	<div class="con_2 menu_down">        
-       		<ul class="menu_sort">
-            	<li>
-                	<h2 class="sort_this"><a href=""><span class="sort_1">全部分类<font>（124）</font></span></a></h2>                    
-                </li> 
-                <li>
-                	<h2><span class="sort_2">餐饮<font>（124）</font></span></h2>
-                    <div class="menu_open">
-                    	<a href="">全部</a>
-                        <a href="">火锅<font>1512</font></a>
-                        <a href="">蛋糕<font>15</font></a>
-                        <a href="">甜品<font>151</font></a>
-                        <a href="">自助餐<font>512</font></a>
-                        <a href="">小吃快餐<font>10</font></a>                       
-                        <a href="">火锅<font>1512</font></a>
-                        <a href="">蛋糕<font>15</font></a>
-                        <a href="">甜品<font>151</font></a>
-                        <a href="">自助餐<font>512</font></a>
-                        <a href="">小吃快餐<font>10</font></a>
-                    </div>
-                </li>
-                <li>
-                	<h2><span class="sort_3">电影<font>（78）</font></span></h2>
-                    <div class="menu_open">
-                    	<a href="">电影<font>1512</font></a>                        
-                    </div>
-                </li>
-                <li>
-                	<h2><span class="sort_4">KTV<font>（24）</font></span></h2>
-                    <div class="menu_open">
-                    	<a href="">KTV<font>1512</font></a>                        
-                    </div>
-                </li>
-                <li>
-                	<h2><span class="sort_5">美容美发<font>（10）</font></span></h2>
-                    <div class="menu_open">
-                    	<a href="">美容美发<font>1512</font></a>                        
-                    </div>
-                </li>
-                <li>
-                	<h2><span class="sort_6">健身保健<font>（22）</font></span></h2>
-                    <div class="menu_open">
-                    	<a href="">健身保健<font>1512</font></a>                        
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <div class="con_2 menu_down">
-       		<ul class="menu_sort">
-            	<li>
-                	<h2 class="sort_this"><span>附近<font>（124）</font></span></h2>
-                    <div class="menu_open">
-                    	<a href="">1千米</a>
-                        <a href="">3千米</a>
-                        <a href="">全程</a>
-                    </div>                    
-                </li> 
-                <li>
-                	<h2><span>桓台县<font>（124）</font></span></h2>
-                    <div class="menu_open">
-                    	<a href="">全部</a>
-                        <a href="">信誉楼<font>1512</font></a>
-                        <a href="">喜乐佳<font>15</font></a>
-                    </div>
-                </li>
-                <li>
-                	<h2><span>沂源县<font>（78）</font></span></h2>
-                    <div class="menu_open">
-                    	<a href="">沿东路<font>1512</font></a>                        
-                    </div>
-                </li>
-                <li>
-                	<h2><span>张店区<font>（24）</font></span></h2>
-                    <div class="menu_open">
-                    	<a href="">美食街<font>1512</font></a>                        
-                    </div>
-                </li>
-                <li>
-                	<h2><span>淄川区<font>（10）</font></span></h2>
-                    <div class="menu_open">
-                    	<a href="">全部<font>1512</font></a>                        
-                    </div>
-                </li>
-                <li>
-                	<h2><span>博山区<font>（22）</font></span></h2>
-                    <div class="menu_open">
-                    	<a href="">中心路<font>1512</font></a>                        
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <div class="con_2 menu_down">
-       		<div class="menu_far">
-            	<a href="" class="far_this">智能排序</a>
-                <a href="">好评优先</a>
-                <a href="">离我最近</a>
-                <a href="">人均最低</a>
-                <a href="">人均最高</a>               
-            </div>
-        </div>
-    </div>
-</div>
-<div class="menu_bg"></div>
-<ul class="list">
-	<li>
-    	<a href="" class="con hide list_box">
-    		<div class="list_img"><img src="images/img_1.jpg"></div>
-            <span class="hide">
-            	<h3 class="normal">【地王大厦】金钱豹 自助餐</h3>
-                <p class="color6">全场5折、6折、7折限量订购，邀您一起共享美味。</p>
-                <strong class="normal red">今天剩余 <font>3</font> 份</strong>
-                <em class="fr color6"><50m</em>
-            </span>
-    	</a>
-    </li>
-   	<li>
-    	<a href="" class="con hide list_box">
-    		<div class="list_img"><img src="images/img_1.jpg"></div>
-            <span class="hide">
-            	<h3 class="normal">【地王大厦】金钱豹 自助餐</h3>
-                <p class="color6">全场5折、6折、7折限量订购，邀您一起共享美味。</p>
-                <strong class="normal red">今天剩余 <font>3</font> 份</strong>
-                <em class="fr color6"><50m</em>
-            </span>
-    	</a>
-    </li>
-    <li>
-    	<a href="" class="con hide list_box">
-    		<div class="list_img"><img src="images/img_1.jpg"></div>
-            <span class="hide">
-            	<h3 class="normal">【地王大厦】金钱豹 自助餐</h3>
-                <p class="color6">全场5折、6折、7折限量订购，邀您一起共享美味。</p>
-                <strong class="normal red">今天剩余 <font>3</font> 份</strong>
-                <em class="fr color6"><50m</em>
-            </span>
-    	</a>
-    </li>
-    <li>
-    	<a href="" class="con hide list_box">
-    		<div class="list_img"><img src="images/img_1.jpg"></div>
-            <span class="hide">
-            	<h3 class="normal">【地王大厦】金钱豹 自助餐</h3>
-                <p class="color6">全场5折、6折、7折限量订购，邀您一起共享美味。</p>
-                <strong class="normal red">今天剩余 <font>3</font> 份</strong>
-                <em class="fr color6"><50m</em>
-            </span>
-    	</a>
-    </li>
-    <li>
-    	<a href="" class="con hide list_box">
-    		<div class="list_img"><img src="images/img_1.jpg"></div>
-            <span class="hide">
-            	<h3 class="normal">【地王大厦】金钱豹 自助餐</h3>
-                <p class="color6">全场5折、6折、7折限量订购，邀您一起共享美味。</p>
-                <strong class="normal red">今天剩余 <font>3</font> 份</strong>
-                <em class="fr color6"><50m</em>
-            </span>
-    	</a>
-    </li>
-</ul>
 
+	<body>
 
+		<section class="test">
+			这里是主体内容<br />
+			<input type="button" class="testButton" value="弹出遮罩" />
+		</section>
 
-<!-- 推荐开源CDN来选取需引用的外部JS //-->
-<script type="text/javascript" src="http://cdn.gbtags.com/jquery/1.11.1/jquery.min.js"></script>
+		<section class="testBg">
 
-		
-		
-		
+			<section class="testCont">
+				这里是弹出的内容测试
+			</section>
+		</section>
+
+		<script src="js/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+
+		<script>
+			$(function() { 
+				$(".testBg").height($(window).height()).width($(window).width()); //使遮罩的背景覆盖整个页面
+				 
+				var testContTop = ($(window).height() - $(".testCont").height()) / 2;  //计算弹出的框距离页面顶部的距离
+				 
+				var testContWidth = ($(window).width() - $(".testCont").width()) / 2;   //计算弹出的框距离页面左边的距离
+				 
+				$(".testCont").css({  
+					"top": testContTop,
+					  "left": testContWidth 
+				}); 
+				$(".testButton").click(function() {  
+					$(".testBg").show(); 
+				})
+			})
+		</script>
+	</body>
+
 </html>
