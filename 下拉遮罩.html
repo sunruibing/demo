@@ -5,9 +5,6 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<style>
-			/*CSS源代码*/
-			/* Common style */
-			
 			body,
 			h1,
 			h2,
@@ -131,7 +128,6 @@
 			
 			.menu {
 				width: 100%;
-				height: 1.08rem;
 				position: fixed;
 				z-index: 2;
 				border-bottom: 1px solid #bbb;
@@ -151,59 +147,27 @@
 				color: #333;
 			}
 			
-			.menu_nav span {
-				background: url(img/imgs/menu2-2.png) 82% center no-repeat;
+			.menu_nav li {
+				float: left;
+				padding: 6px 100px;
+				background: url(../images/arow_1.png) 82% center no-repeat;
 				background-size: 0.18rem 0.1rem;
+				border: 1px solid #292929;
 			}
-			
 			.menu_nav .menu_this {
-				color: #be0000;
-				background: url(img/imgs/menu1-1.png) 82% center no-repeat;
+				color: #09BB06;
+				background: url(../images/arow_2.png) 82% center no-repeat;
 				background-size: 0.18rem 0.1rem;
 			}
 			
-			.menu_down_bg {
-				width: 100%;
-				background: #fff;
-			}
 			
 			.menu_down {
-				position: absolute;
+				width: 100%;
 				display: none;
 				background: #fff;
-			}
-			
-			.menu_open {
-				display: none;
-				width: 50%;
-				height: 4.8rem;
-				overflow-y: scroll;
-				position: absolute;
-				top: 0;
-				right: 0;
-				background: #f5f5f5;
-			}
-			
-			.menu_open a {
-				display: block;
-				height: 0.8rem;
-				line-height: 0.8rem;
-				text-indent: 0.6rem;
-			}
-			
-			.menu_open a:active {
-				background: #ddd;
-			}
-			
-			.menu_open a font {
-				color: #999;
-				float: right;
-				margin-right: 0.3rem;
 			}
 			
 			.menu_far {
-				z-index: 9999;
-				position: relative;
 				width: 100%;
 				background: #fff;
 			}
@@ -216,32 +180,47 @@
 				text-indent: 0.8rem;
 			}
 			
-			.menu_far a:active,
-			.menu_far .far_this {
-				background: #f5f5f5;
+			.menu_far a:active {
 			}
 			
 			.menu_bg {
 				display: none;
 				width: 100%;
 				height: 100%;
-				position: relative;
+				position: fixed;
 				z-index: 1;
-				background: #CCCCCC;
+				background: rgba(0, 0, 0, 0.5);
 			}
+			
 		</style>
 	</head>
 
 	<body>
-		<!-- HTML代码片段中请勿添加<body>标签 //-->
 		<div class="menu">
 			<div class="con_2 menu_nav">
-				<span>全部分类</span>|<span>商圈</span>|<span>离我最近</span>
+				<ul>
+				<li>全部分类</li><li>商圈</li><li>离我最近</li>
+			    </ul>
 			</div>
 			<div class="menu_down_bg">
 				<div class="con_2 menu_down">
+					 <div class="menu_far">
+						<a href="">得分最高</a>
+						<a href="">离我最近</a>
+						<a href="">人均最低</a>
+						<a href="">人均最高</a>
+					</div>
+				</div>
+				<div class="con_2 menu_down">
 					<div class="menu_far">
-						<a href="" class="far_this">智能排序</a>
+						<a href="">人均最高</a>
+						<a href="">离我最近</a>
+						<a href="">人均最低</a>
+						<a href="">人均最高</a>
+					</div>
+				</div>
+				<div class="con_2 menu_down">
+					<div class="menu_far">
 						<a href="">好评优先</a>
 						<a href="">离我最近</a>
 						<a href="">人均最低</a>
@@ -249,65 +228,36 @@
 					</div>
 				</div>
 			</div>
-			<div class="menu_down_bg">
-				<div class="con_2 menu_down">
-					<div class="menu_far">
-						<a href="" class="far_this">智能排序</a>
-						<a href="">好评优先</a>
-						<a href="">离我最近</a>
-						<a href="">好评优先</a>
-						<a href="">好评优先</a>
-					</div>
-				</div>
-			</div>
-			<div class="menu_down_bg">
-				<div class="con_2 menu_down">
-					<div class="menu_far">
-						<a href="" class="far_this">智能排序</a>
-						<a href="">好评优先</a>
-						<a href="">离我最近</a>
-						<a href="">离我最近</a>
-						<a href="">离我最近</a>
-					</div>
-				</div>
-			</div>
-			<p>sdsdfsdfsdfsdfsdfsd</p>
-			<p>sdsdfsdfsdfsdfsdfsd</p>
-			<p>sdsdfsdfsdfsdfsdfsd</p>
-			<p>sdsdfsdfsdfsdfsdfsd</p>
-			<p>sdsdfsdfsdfsdfsdfsd</p>
-
-			<p>sdsdfsdfsdfsdfsdfsd</p>
-			<p>sdsdfsdfsdfsdfsdfsd</p>
-			<p>sdsdfsdfsdfsdfsdfsd</p>
-			<p>sdsdfsdfsdfsdfsdfsd</p>
-
-			<p>sdsdfsdfsdfsdfsdfsd</p>
-			<p>sdsdfsdfsdfsdfsdfsd</p>
-			<p>sdsdfsdfsdfsdfsdfsd</p>
-			<p>sdsdfsdfsdfsdfsdfsd</p>
-			<p>sdsdfsdfsdfsdfsdfsd</p>
-			<p>sdsdfsdfsdfsdfsdfsd</p>
-
-			<p>sdsdfsdfsdfsdfsdfsd</p>
-			<p>sdsdfsdfsdfsdfsdfsd</p>
-			<p>sdsdfsdfsdfsdfsdfsd</p>
-			<p>sdsdfsdfsdfsdfsdfsd</p>
-			<p>sdsdfsdfsdfsdfsdfsd</p>
-			<p>sdsdfsdfsdfsdfsdfsd</p>
-			<p>sdsdfsdfsdfsdfsdfsd</p>
-
-			<p>sdsdfsdfsdfsdfsdfsd</p>
-			<p>sdsdfsdfsdfsdfsdfsd</p>
-			<p>sdsdfsdfsdfsdfsdfsd</p>
-
 		</div>
 		<div class="menu_bg"></div>
-
-		<script type="text/javascript" src="assets/js/jquery-3.1.0.min.js"></script>
-		<!-- 推荐开源CDN来选取需引用的外部JS //-->
+		<div style=" background-color: #6FC3F4; margin-top: 70px;">
+	    <p>655655556</p>
+	    <p>655655556</p>
+	    <p>111111111111111</p>
+	     <p>655655556</p>
+	      <p>655655556</p>
+	       <p>655655556</p>
+	        <p>655655556</p>
+	         <p>655655556</p>
+	         
+	          <p>655655556</p>
+	           <p>655655556</p>
+	            <p>655655556</p>
+	             <p>655655556</p>
+	              <p>655655556</p>
+	               <p>655655556</p>
+	                <p>655655556</p>
+	                
+	                 <p>655655556</p> <p>655655556</p>
+	                 
+	                  <p>655655556</p>
+	                   <p>655655556</p>
+	                    <p>655655556</p>
+	                     <p>655655556</p>
+	                     </div>
+	                     
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 		<script>
-			/*Javascript代码片段*/
 			$(document).ready(function() {
 				var deviceWidth = $(window).outerWidth();
 				if(deviceWidth > 1080) {
@@ -315,13 +265,13 @@
 				} else {
 					$("html").css("font-size", deviceWidth / 1080 * 100 + 'px');
 				}
-				var menu_t = $(".menu_nav span");
+				var menu_t = $(".menu_nav li");
 				var menu_c = $(".menu_down");
 				var menu_bg = $(".menu_bg");
 
 				menu_t.each(function(index) {
 					$(this).click(function() {
-						$(this).siblings("span").removeClass("menu_this");
+						$(this).siblings("li").removeClass("menu_this");
 						$(this).addClass("menu_this");
 						var m_this = menu_c.eq(index);
 						m_this.siblings("div").hide();
@@ -350,13 +300,12 @@
 					});
 				});
 
+
 				//点击背景隐藏	
 				menu_bg.click(function() {
 					$(this).hide();
 					menu_t.removeClass("menu_this");
 					menu_c.hide();
-					down_t.removeClass("sort_this");
-					down_c.hide();
 					$("html,body").css({
 						"height": "auto",
 						"overflow": "auto"
