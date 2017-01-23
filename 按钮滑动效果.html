@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery可拖动播放进度条代码 - 站长素材</title>
+</head>
+
+<style type="text/css">
+@charset "utf-8";
+/* CSS Document */
+body,html,div,ul,li,a{
+	margin:0;
+	padding:0;
+	}
+body,html{
+	margin:0; padding:0;
+	height:100%;
+	width:100%;
+	font-family:"微软雅黑"
+	}
+body{
+	background:#fff;
+	text-align:center;
+	background:#D9EDF7;
+	}
+.BarControl{
+	width:100%;
+	height:100%;
+	padding:0;
+	margin:0;
+	display:inline-block;
+	}
+.BarBeginTime{
+	width:40px;
+	height:20px;
+	color:#fff;
+	font-size:8px;
+	line-height:20px;
+	}
+.TheBar{
+	position:relative;
+	width:calc(100% - 114px);
+	margin-left:2px;
+	height:4px;
+	border-radius:2px;
+	-webkit-border-radius:2px;
+	-moz-border-radius:2px;
+	background:#EBE8E8;
+	overflow:visible;
+	}
+.TheColorBar{
+	width:0px;
+	border-radius:0px;
+	-webkit-border-radius:0px;
+	-moz-border-radius:0px;
+	height:100%;
+	background:#09BB06;
+	float:left;
+	}
+.TimeBall{
+	width:10px;
+	height:10px;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	background:#09BB06;
+	position:absolute;
+	left:0px;
+	top:-3px;
+	z-index:2;
+	cursor:pointer;
+	}
+.BarTimeBall{
+	width:10px;
+	height:10px;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	background:#09BB06;
+	position:absolute;
+	left:0px;
+	top:-3px;
+	z-index:2;
+	cursor:pointer;
+	}
+.BarFinishTime{
+	width:40px;
+	height:20px;
+	color:#fff;
+	font-size:8px;
+	line-height:20px;
+	}
+.BarBeginTime,.BarFinishTime,.TheBar{
+	display:inline-block;
+	vertical-align:middle;
+	padding:0px;
+	}
+.test{
+	width:400px;
+	height:20px;
+	position:fixed;
+	left:50%;
+	top:50%;
+	margin-left:-200px;
+	margin-top:-10px;
+	}
+.contral{
+	width:50px;
+	height:30px;
+	line-height:30px;
+	background:#09BB06;
+	cursor:pointer;
+	color:#fff;
+	position:fixed;
+	left:50%;
+	top:50%;
+	margin-left:-25px;
+	margin-top:-45px;
+	text-align:center;
+	}
+</style>
+
+<body>
+
+<div class="test"></div>
+
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/huadong.js"></script>
+<script>
+	$(function(){
+		
+		$.playBar.addBar($('.test'),2000*60);//第一个参数是需要显示播放器的容器，第二个参数为时间，单位毫秒
+		$.playBar.changeBarColor("#09bb06");//设置进度条颜色
+		
+		});
+</script>
+</body>
+</html>
+
