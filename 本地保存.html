@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Web SQL Database</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				font-family: "microsoft yahei";
+			}
+			#container{
+				padding: 10px;
+				font-size: 14px;
+			}
+			#container a{
+				color: #fff;
+				text-decoration: none;
+				margin-right: 5px;
+			}
+			#container a:hover{
+				color:orangered;
+			}
+			button,a{
+				border: 0;
+				height: 22px;
+				line-height: 22px;
+				border-radius: 3px;
+				padding:0 10px;
+				background: dodgerblue;
+				color: white;
+			}
+			button:hover{
+				background: orangered;
+			}
+			#container h2{
+				height: 60px;
+			}
+			html #tabGoods{
+				width:100%;
+				margin: 15px 0;
+				border: 2px solid #0062CC;
+			}
+			#tabGoods,#tabGoods td,#tabGoods th
+			{
+				border: 1px solid #0062CC;
+				border-collapse: collapse;
+			}
+			#tabGoods td,#tabGoods th{
+				padding: 5px 0 5px 5px;
+			}
+			#fieldsetForm{
+				padding: 10px;
+				border-radius: 10px;
+				border: 2px solid #0062CC;
+				max-width: 400px;
+			}
+			#fieldsetForm p{
+				padding: 10px;
+			}
+			#msg{
+				font-size: 16px;
+				font-weight: normal;
+				height: 100px;
+				overflow: auto;
+				margin-top: 10px;
+			}
+			input[type="text"]
+			{
+				border: 1px solid #0062CC;
+				border-radius: 2px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="container">
+			<h2>Web SQL Database</h2>
+			<button id="btnCreateTable">创建表</button>
+			<button id="btnDropTable">删除表</button>
+			<table id="tabGoods">
+				<tr>
+					<th>编号</th>
+					<th>名称</th>
+					<th>价格</th>
+					<th>删除</th>
+				</tr>
+			</table>
+			<fieldset id="fieldsetForm">
+				<legend>商品信息</legend>
+				<p>
+					<label for="name">名称：</label>
+					<input type="text" id="name" value="" />
+				</p>
+				<p>
+					<label for="price">价格：</label>
+					<input type="text" id="price" value="" />
+				</p>
+				<p>
+					<input type="hidden" id="goodsId" />
+					<button id="btnInsert">添加</button>
+					<button id="btnUpdate">更新</button>
+				</p>
+			</fieldset>
+			<h2 id="msg"></h2>
+		</div>
+		<script src="js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//定义当前应用的对象
+			var dbApp = {
+				//打开数据库
+				openDb: function() {
+					//创建名称为products，版本为1.0,描述为产品数据库，3M大小的数据库
+					this.db = openDatabase("products", 1.0, "产品数据库", 1024 * 1024 * 3, function() {
+						this.log("创建或打开数据库完成");
+					});
+				},
+				//初始化
+				init: function() {
+					//打开或创建数据库
+					this.openDb();
+					//绑定事件
+					this.bindEvent();
+					//展示数据
+					this.select();
+					this.log("初始化完成");
+				},
+				//绑定事件
+				bindEvent: function() {
+					//添加事件
+					$("#btnInsert").click(this.insert);
+					$("#btnUpdate").click(this.update);
+					$("#btnCreateTable").click(this.createTable);
+					$("#btnDropTable").click(this.dropTable);
+				},
+				//显示消息
+				log: function(info) {
+					$("#msg")[0].innerHTML += info + "<br/>";
+				},
+				//执行sql的通用方法 result.rowsAffected 影响行数
+				//callback执行成功时的回调方法
+				exeSql: function(sql, title, param, callback) {
+					title = title || "操作";
+					this.db.transaction(function(tx) {
+						tx.executeSql(
+							sql, param || [],
+							function(tx, result) {
+								dbApp.log(title + '成功');
+								if(callback) { //如果有参数
+									callback(result);
+								}
+							},
+							function(tx, error) {
+								dbApp.log(title + '失败' + error.message);
+							});
+					});
+				},
+				//创建表
+				createTable: function() {
+					dbApp.exeSql("create table IF not EXISTS goods(id integer primary key autoincrement,name text not null,price double)", "创建表");
+				},
+				//删除表
+				dropTable: function() {
+					dbApp.exeSql("drop table IF EXISTS goods", "删除表");
+				},
+				//展示，加载数据
+				select: function() {
+					dbApp.exeSql("select id,name,price from goods", "查询", [], function(result) {
+						//将表格中tr索引大于0的元素删除
+						$("#tabGoods tr:gt(0)").remove();
+						for(var i = 0; i < result.rows.length; i++) {
+							var tr = $("<tr/>");
+
+							$("<td/>").text(result.rows.item(i)["id"]).appendTo(tr);
+							$("<td/>").text(result.rows.item(i)["name"]).appendTo(tr);
+							$("<td/>").text(result.rows.item(i)["price"]).appendTo(tr);
+							var del = $("<a href='#' onclick='dbApp.del(" + result.rows.item(i)["id"] + ",this)' >删除</a> ")
+							var edit = $("<a href='#' onclick='dbApp.edit(" + result.rows.item(i)["id"] + ",this)' >修改</a>")
+							$("<td/>").append(del).append(edit).appendTo(tr);
+							tr.appendTo("#tabGoods");
+						}
+					});
+				},
+				//插入数据
+				insert: function() {
+					//如果insert方法被绑定为事件，则this表示事件发生的对象
+					dbApp.exeSql("insert into goods(name,price) values(?,?)", "添加", [$("#name").val(), $("#price").val()], function() {
+						dbApp.select();
+					});
+				},
+				//删除 
+				del: function(id, link) {
+					dbApp.exeSql("delete from goods where id=?", "删除", [id], function(result) {
+						//查找a标签最近的一个tr父元素，移除
+						$(link).closest("tr").remove();
+					});
+				},
+				//编辑
+				edit: function(id) {
+					dbApp.exeSql("select id,name,price from goods where id=?", "编辑", [id], function(result) {
+						$("#name").val(result.rows.item(0)["name"]);
+						$("#price").val(result.rows.item(0)["price"]);
+						$("#goodsId").val(result.rows.item(0)["id"]);
+						dbApp.log("修改后请保存");
+					});
+				},
+				//更新
+				update: function() {
+					if($("#goodsId").val()) {
+						dbApp.exeSql("update goods set name=?,price=?  where id=?", "更新", [$("#name").val(), $("#price").val(), $("#goodsId").val()], function(result) {
+							dbApp.select();
+							$("#goodsId").val("");
+						});
+					} else {
+						dbApp.log("请选择要更新的记录 ");
+					}
+				}
+			};
+
+			dbApp.init();
+		</script>
+	</body>
+
+</html>

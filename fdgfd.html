@@ -5,6 +5,11 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<style type="text/css">
+			.main{
+			  width: 400px;
+			  height: 400px;
+			  border: 1px solid #000000;
+			}
 			.file {
 				position: relative;
 				display: inline-block;
@@ -12,6 +17,9 @@
 				border: 1px solid #99D3F5;
 				overflow: hidden;
 				color: #1E88C7;
+				font-size: 35px;
+				text-align: center;
+                line-height: 48px;
 				width: 48px;
 				height: 48px;
 			}
@@ -30,14 +38,51 @@
 				color: #004974;
 				text-decoration: none;
 			}
+			.z_addImg {
+            float: left;
+            margin-right: 0.2rem;
+        }
 		</style>
 	</head>
 
 	<body>
+		<div class="main">
 		<div class="file">
-			<p  style="text-align: center; font-size: 30px; ">+</p>
-		<input type="file"/>
+		+
+		<input type="file" name="file" id="file" value="" accept="image/*" multiple onchange="imgChange('z_photo','z_file');"/>
 		</div>
+		</div>
+		
+		<script>
+			function imgChange(obj1, obj2) {
+            //获取点击的文本框
+            var file = document.getElementById("file");
+            //存放图片的父级元素
+            var imgContainer = document.getElementsByClassName(obj1)[0];
+            //获取的图片文件
+            var fileList = file.files;
+            //文本框的父级元素
+            var input = document.getElementsByClassName(obj2)[0];
+            var imgArr = [];
+            //遍历获取到得图片文件
+            for (var i = 0; i < fileList.length; i++) {
+                var imgUrl = window.URL.createObjectURL(file.files[i]);
+                imgArr.push(imgUrl);
+                var img = document.createElement("img");
+                img.setAttribute("src", imgArr[i]);
+                var imgAdd = document.createElement("div");
+                imgAdd.setAttribute("class", "z_addImg");
+                imgAdd.appendChild(img);
+                imgContainer.appendChild(imgAdd);
+            };
+            imgRemove();
+        };
+			
+			
+			
+			
+		</script>
+		
 	</body>
-
+    
 </html>
